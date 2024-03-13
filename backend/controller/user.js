@@ -11,6 +11,8 @@ const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
 // create user
 router.post("/create-user", async (req, res, next) => {
+  console.log(req.body);
+
   try {
     const { name, email, password, avatar } = req.body;
     const userEmail = await User.findOne({ email });
@@ -103,6 +105,7 @@ router.post(
   "/login-user",
   catchAsyncErrors(async (req, res, next) => {
     try {
+      console.log(req.body);
       const { email, password } = req.body;
 
       if (!email || !password) {
