@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 function SignUp() {
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
+    console.log('avatar: ', avatar);
     const {
         register,
         handleSubmit,
@@ -17,13 +18,29 @@ function SignUp() {
         formState: { errors },
       } = useForm()
 
-      const handleFileInputChange = (e) => {
-        const files = e.target.files[0]
-        setAvatar(files)
-      }
-      const onSubmit = (params) => {
-        
-      }
+      const handleApplication = async (data) => {
+        // console.log('data:>>', resume);
+        const formData = new FormData();
+        // Append other form data
+        formData.append("name", data.name);
+        formData.append("email", data.email);
+        formData.append("phone", data.phone);
+            formData.append("resume", resume); // Append the file directly to the FormData
+        for (let value of formData.values()) {
+          // console.log(value);
+        }
+        try {
+          setLoading(true)
+          const res = await postApplicationData.mutateAsync(formData);
+          toast.success(res.message);
+        } catch (error) {
+          toast.error(error.message);
+        } finally {
+          setLoading(false)
+          reset();
+          navigate('/job/getall')
+        }
+      };
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -33,7 +50,7 @@ function SignUp() {
           </div>
           <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-              <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+              <form className="space-y-6" onSubmit={handleSubmit(handleApplication)}>
                 <div>
                   <label
                     htmlFor="email"
@@ -131,7 +148,7 @@ function SignUp() {
                         name="avatar"
                         id="file-input"
                         accept=".jpg,.jpeg,.png"
-                        onChange={handleFileInputChange}
+                        onChange={(e) => setAvatar(e.target.files[0])}
                         className="sr-only"
                       />
                     </label>

@@ -6,9 +6,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 // app.use(cors({
-//   origin: ['https://eshop-tutorial-pyri.vercel.app',],
+//   origin: ['https://eshop-tutorial-pyri.vercel.app', 'http://localhost:8000'],
 //   credentials: true
 // }));
+app.use(
+  cors({
+    origin: "*"
+  })
+)
 
 app.use(express.json());
 app.use(cookieParser());
