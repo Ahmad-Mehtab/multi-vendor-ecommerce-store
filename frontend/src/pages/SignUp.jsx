@@ -5,11 +5,19 @@ import { Link } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import { doRegister } from "../@apis/auth";
+import { useMutation } from "@tanstack/react-query";
+import { DevTool } from "@hookform/devtools";
 
 function SignUp() {
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
-    console.log('avatar: ', avatar);
+    const userRegistered = useMutation({
+      mutationFn: doRegister,
+      // onSuccess: (data,error) => {
+      // toast.success(data.data.message)
+      // },
+    });
     const {
         register,
         handleSubmit,
@@ -24,21 +32,24 @@ function SignUp() {
         // Append other form data
         formData.append("name", data.name);
         formData.append("email", data.email);
-        formData.append("phone", data.phone);
-            formData.append("resume", resume); // Append the file directly to the FormData
-        for (let value of formData.values()) {
-          // console.log(value);
-        }
+        formData.append("password", data.password);
+            formData.append("avatar", avatar); // Append the file directly to the FormData
+            // console.log(formData);
+        // for (let value of formData.values()) {
+        //   console.log(value);
+        // }
         try {
-          setLoading(true)
-          const res = await postApplicationData.mutateAsync(formData);
-          toast.success(res.message);
+          // setLoading(true)
+          // const res = 
+          await userRegistered.mutateAsync(formData);
+          
+          toast.success("added successfully");
         } catch (error) {
-          toast.error(error.message);
+          toast.error("some thing went wrong");
         } finally {
-          setLoading(false)
-          reset();
-          navigate('/job/getall')
+          // setLoading(false)
+          // reset();
+          // navigate('/job/getall')
         }
       };
     return (
@@ -170,6 +181,7 @@ function SignUp() {
                   </Link>
                 </div>
               </form>
+              <DevTool control={control} /> {/* set up the dev tool */}
             </div>
           </div>
         </div>
