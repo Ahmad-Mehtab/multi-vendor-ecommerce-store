@@ -8,23 +8,22 @@ const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
+const { upload } = require("../multer");
 
 // create user
-router.post("/create-user", async (req, res, next) => {
-  console.log(req.body);
+router.post("/create-user", upload.single("file"), async (req, res, next) => {
 
   try {
-    const { name, email, password, avatar } = req.body;
+    const { name, email, password } = req.body;
     const userEmail = await User.findOne({ email });
 
     if (userEmail) {
       return next(new ErrorHandler("User already exists", 400));
     }
 
-    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+    const myCloud = await cloudinary.v2.uploader.upload(req.file.path, {
       folder: "avatars",
     });
-
     const user = {
       name: name,
       email: email,
@@ -37,7 +36,9 @@ router.post("/create-user", async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://eshop-tutorial-pyri.vercel.app/activation/${activationToken}`;
+    const activationUrl = `http://localhost:3000/${activationToken}`;
+
+    console.log(user, activationUrl, activationToken)
 
     try {
       await sendMail({
