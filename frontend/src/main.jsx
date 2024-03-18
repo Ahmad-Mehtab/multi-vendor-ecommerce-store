@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 // import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Login, SignUp } from "./Route.js";
+import { ActivateToken, Login, SignUp } from "./Route.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { Provider } from "react-redux";
 
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "sign-up",
     element: <SignUp />,
+  },
+  {
+    path: "/activation/:activation_token",
+    element: <ActivateToken />,
   },
   // {
   //   path: "/",

@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../styles/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
@@ -12,10 +12,12 @@ import { DevTool } from "@hookform/devtools";
 function SignUp() {
   const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
+ const navigate =  useNavigate()
   const userRegistered = useMutation({
     mutationFn: doRegister,
     // onSuccess: (data,error) => {
-    // toast.success(data.data.message)
+    // toast.success("data submitted successfully");
+    
     // },
   });
   const {
@@ -40,10 +42,12 @@ function SignUp() {
     // }
     try {
       // setLoading(true)
-      // const res =
-      await userRegistered.mutateAsync(formData);
-
-      toast.success("added successfully");
+      const res = await userRegistered.mutateAsync(formData);
+      if (res.data.success) {
+        // navigate("/")
+        
+      }
+      // toast.success("added successfully");
     } catch (error) {
       toast.error("some thing went wrong");
     } finally {

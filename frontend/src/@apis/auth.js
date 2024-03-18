@@ -21,3 +21,18 @@ export const doLogin = ({data}) =>{
         data:data,  
     })
 }   
+
+export const getActivationTaken = async (activation_token) => {
+
+    try {
+        const response = await PublicAxios({
+            method: 'POST',
+            url: `/api/v2/user/activation/${activation_token}`,
+            // headers: { "Content-Type": "application/json" }
+        });
+        // console.log("-------------",response.data.job);
+        return response.data;
+    } catch (error) {
+        throw new Error("Failed to fetch job details");
+    }
+};
