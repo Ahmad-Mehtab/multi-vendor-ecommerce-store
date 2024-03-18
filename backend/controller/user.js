@@ -67,13 +67,14 @@ const createActivationToken = (user) => {
 
 // activate user
 router.post(
-  "/activation",
+  "/activation/:id",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { activation_token } = req.body;
+      const id  = req.params.id;
 
+      console.log(id);
       const newUser = jwt.verify(
-        activation_token,
+        id,
         process.env.ACTIVATION_SECRET
       );
 
@@ -83,6 +84,7 @@ router.post(
       const { name, email, password, avatar } = newUser;
 
       let user = await User.findOne({ email });
+      console.log('user: ', user);
 
       if (user) {
         return next(new ErrorHandler("User already exists", 400));

@@ -28,9 +28,9 @@ export const getActivationTaken = async (activation_token) => {
         const response = await PublicAxios({
             method: 'POST',
             url: `/api/v2/user/activation/${activation_token}`,
-            // headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" }
         });
-        // console.log("-------------",response.data.job);
+        console.log("-------------",response.data);
         return response.data;
     } catch (error) {
         throw new Error("Failed to fetch job details");
