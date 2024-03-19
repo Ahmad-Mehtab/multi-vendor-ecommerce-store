@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "react-toastify/dist/ReactToastify.css";
 // import { persistor, store } from "./redux/store.js";
 // import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";

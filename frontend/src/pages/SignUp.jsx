@@ -3,27 +3,48 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../styles/styles";
 import { Link, useNavigate } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
-import { toast } from "react-toastify";
+
 import { useForm } from "react-hook-form";
 import { doRegister } from "../@apis/auth";
 import { useMutation } from "@tanstack/react-query";
 import { DevTool } from "@hookform/devtools";
+import { ToastContainer, toast } from "react-toastify";
 
 function SignUp() {
   const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
- const navigate =  useNavigate()
-  const userRegistered = useMutation({
+  const navigate = useNavigate();
+  const {
+    data,
+    error,
+    isError,
+    isIdle,
+    isLoading,
+    isPaused,
+    isSuccess,
+    failureCount,
+    failureReason,
+    mutateAsync,
+    mutate,
+    status,
+  } = useMutation({
     mutationFn: doRegister,
-    // onSuccess: (data,error) => {
-    // toast.success("data submitted successfully");
-    
-    // },
+    onSuccess: (data, variables, context) => {
+      // console.log("data: ", data);
+      // I will fire first
+    },
+    onError: (error, variables, context) => {
+      toast.error("error: ", error.message);
+      console.log("error: ", error.message);
+    },
   });
+  console.log(data);
+
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     control,
     formState: { errors },
   } = useForm();
@@ -42,18 +63,14 @@ function SignUp() {
     // }
     try {
       // setLoading(true)
-      const res = await userRegistered.mutateAsync(formData);
-      if (res.data.success) {
-        // navigate("/")
-        
-      }
-      // toast.success("added successfully");
+      const response = await mutateAsync(formData);
+      console.log("res: ", response);
+      if (response.success) toast.success("Registration successful");
     } catch (error) {
-      toast.error("some thing went wrong");
+      toast.error(error.response.data.message);
     } finally {
-      // setLoading(false)
-      // reset();
-      // navigate('/job/getall')
+      reset();
+      // navigate("/job/getall");
     }
   };
   return (
@@ -148,7 +165,7 @@ function SignUp() {
                 <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
                   {avatar ? (
                     <img
-                      src={avatar}
+                      src={avatar?.url}
                       alt="avatar"
                       className="h-full w-full object-cover rounded-full"
                     />
@@ -183,12 +200,13 @@ function SignUp() {
             </div>
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Already have an account?</h4>
-              <Link to="/login" className="text-blue-600 pl-2">
+              <Link to="/" className="text-blue-600 pl-2">
                 Sign In
               </Link>
             </div>
           </form>
-          <DevTool control={control} /> {/* set up the dev tool */}
+          <DevTool control={control} />
+          <ToastContainer position="top-right" />
         </div>
       </div>
     </div>

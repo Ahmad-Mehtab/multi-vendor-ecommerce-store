@@ -7,8 +7,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { DevTool } from "@hookform/devtools";
 import { doLogin, doRegister } from "../@apis/auth";
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "react-toastify";
+
+
 // import Login from "../components/Login/Login.jsx";
+import { ToastContainer, toast } from 'react-toastify';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -39,7 +41,7 @@ const LoginPage = () => {
     try {
       const res = await userRegistered.mutateAsync({data});
       if(res) {
-        toast.success(res);
+        // toast.success(res);
         // nookies.set(null, 'token', res.data.token, {path: '/'});
         // dispatch(userAuthorize(res.data.user));
         // navigate("/");
@@ -150,7 +152,8 @@ const LoginPage = () => {
               </Link>
             </div>
           </form>
-          <DevTool control={control} /> {/* set up the dev tool */}
+          <DevTool control={control} /> 
+          <ToastContainer position="top-right" />
         </div>
       </div>
     </div>
