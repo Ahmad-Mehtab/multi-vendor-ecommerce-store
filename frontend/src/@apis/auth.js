@@ -7,8 +7,7 @@ export const doRegister = async (formData) => {
             data: formData,
             headers: { "Content-Type": "multipart/form-data" }
         });
-        console.log(response);
-        return response.data;
+          return response.data;
         
    
 }
@@ -18,6 +17,7 @@ export const doLogin = ({data}) =>{
         method:'POST',
         url:"/api/v2/user/login-user",
         data:data,  
+        // withCredentials: true,
     })
 }   
 

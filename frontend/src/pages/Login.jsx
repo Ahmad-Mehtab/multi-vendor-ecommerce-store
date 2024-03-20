@@ -5,14 +5,15 @@ import { useForm } from "react-hook-form";
 // import { useSelector } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
 import { DevTool } from "@hookform/devtools";
-import { doLogin, doRegister } from "../@apis/auth";
+import { doLogin } from "../@apis/auth";
 import { useMutation } from "@tanstack/react-query";
-
-
-// import Login from "../components/Login/Login.jsx";
 import { ToastContainer, toast } from 'react-toastify';
+import { userAuthorize } from "../redux/user/userSlice";
+import { useDispatch } from "react-redux";
+
 
 const LoginPage = () => {
+  const dispatch =  useDispatch();  
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const {
@@ -22,7 +23,7 @@ const LoginPage = () => {
     control,
     formState: { errors },
   } = useForm();
-  const userRegistered = useMutation({
+  const {data, isError, mutateAsync} = useMutation({
     mutationFn: doLogin,
     // onSuccess: (data,error) => {
     // toast.success(data.data.message)
@@ -37,19 +38,19 @@ const LoginPage = () => {
   //   }, [])
 
   const onSubmit = async(data) => {
-    console.log("hello");
     try {
-      const res = await userRegistered.mutateAsync({data});
-      if(res) {
-        // toast.success(res);
+      const res = await mutateAsync({data});
+      console.log('res: ', res);
+      if(res.data.success) {
+        toast.success("Login successful")
         // nookies.set(null, 'token', res.data.token, {path: '/'});
-        // dispatch(userAuthorize(res.data.user));
+        dispatch(userAuthorize(res.data.user));
         // navigate("/");
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response.data.message);
     } finally {
-      console.log('done')
+      
       // reset();
     }
   };
@@ -153,7 +154,7 @@ const LoginPage = () => {
             </div>
           </form>
           <DevTool control={control} /> 
-          <ToastContainer position="top-right" />
+          
         </div>
       </div>
     </div>
