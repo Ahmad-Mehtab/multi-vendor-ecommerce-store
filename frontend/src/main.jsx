@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ActivateToken, Login, SignUp } from "./Route.js";
+import { ActivateToken, Login, SignUp, HomePage} from "./Route.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 // import { Provider } from "react-redux";
@@ -14,6 +14,10 @@ import { ToastContainer } from "react-toastify";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/login",
     element: <Login />,
   },
   {
