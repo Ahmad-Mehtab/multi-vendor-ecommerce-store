@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import styles from "./../../styles/styles";
 import { Link } from "react-router-dom";
-import {categoriesData, productData } from "../../static/Data";
-import { AiOutlineSearch } from "react-icons/ai";
+import { categoriesData, productData } from "../../static/Data";
+import {
+  AiOutlineHeart,
+  AiOutlineSearch,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
+import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
+import Navbar from "./Navbar";
 
 function Header() {
   const [searchValue, setSearchValue] = useState("");
@@ -96,10 +102,34 @@ function Header() {
                 onClick={() => setDropDown(!dropDown)}
               />
             </div>
-            {dropDown &&  (
-               <DropDown setDropDown={setDropDown} categoriesData={categoriesData} />
-            )
-            }
+            {dropDown && (
+              <DropDown
+                setDropDown={setDropDown}
+                categoriesData={categoriesData}
+              />
+            )}
+          </div>
+          <div>
+            <Navbar />
+          </div>
+          <div className={`${styles.noramlFlex} gap-3`}>
+            <div className="relative cursor-pointer">
+              <AiOutlineHeart size={33} color="white" />
+              <span className="absolute top-0 right-0 text-white font-medium text-sm w-4 h-4 flex items-center justify-center bg-green-600 p-[2px] rounded-full">
+                0
+              </span>
+            </div>
+
+            <div className="relative cursor-pointer">
+              <AiOutlineShoppingCart size={33} color="white" />
+              <span className="absolute top-0 right-0 text-white font-medium text-sm w-4 h-4 flex items-center justify-center bg-green-600 p-[2px] rounded-full">
+                1
+              </span>
+            </div>
+            <div className="relative cursor-pointer">
+              <CgProfile size={33} color="white" />
+             
+            </div>
           </div>
         </div>
       </div>
