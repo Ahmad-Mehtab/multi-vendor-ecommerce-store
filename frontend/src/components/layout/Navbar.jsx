@@ -13,7 +13,7 @@ function Navbar() {
           to={item.url} 
           key={index} 
           activeClassName="active"
-          className={`text-[#fff] font-semibold cursor-pointer ${location.pathname === item.url ? 'font-medium text-[#17dd1f]' : ''}`}
+          className={`text-[#fff] font-semibold cursor-pointer ${location.pathname === item.url ? 'font-medium text-[#5cec49]' : ''}`}
 
         >
           {item.title}
