@@ -12,7 +12,7 @@ function Navbar() {
           <NavLink 
           to={item.url} 
           key={index} 
-          activeClassName="active"
+          // activeClassName="active"
           className={`text-[#fff] font-semibold cursor-pointer ${location.pathname === item.url ? 'font-medium text-[#5cec49]' : ''}`}
 
         >

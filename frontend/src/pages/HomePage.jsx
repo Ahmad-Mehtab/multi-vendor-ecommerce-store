@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/layout/Header'
 import Hero from '../components/route/Hero'
 import Categories from '../components/route/categories/Categories'
+import BestDeals from '../components/route/bestdeals/BestDeals'
 
 function HomePage() {
   return (
@@ -10,6 +11,7 @@ function HomePage() {
         <div className='bg-gray-100 pb-2'>
         <Hero />
         <Categories />
+        <BestDeals />
         </div>
     </div>
   )
