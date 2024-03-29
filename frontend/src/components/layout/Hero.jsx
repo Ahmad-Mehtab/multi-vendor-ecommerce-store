@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../styles/styles";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -19,12 +19,14 @@ function Hero() {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum
           accusamus molestias voluptatum, ipsum sint voluptates. Maxime vero
           praesentium, incidunt modi nobis tempora autem quaerat dolor impedit
-          possimus aperiam. Numquam, vitae! autem quaerat dolor impedit
-          possimus aperiam. Numquam, vitae!
+          possimus aperiam. Numquam, vitae! autem quaerat dolor impedit possimus
+          aperiam. Numquam, vitae!
         </p>
         <Link to={"/products"} className="inline-block">
-          <div className={`${styles.button} mt-5`}> 
-          <span className="text-white font-bold font-[Poppins] text-[18px]">Shop Now</span>
+          <div className={`${styles.button} mt-5`}>
+            <span className="text-white font-bold font-[Poppins] text-[18px]">
+              Shop Now
+            </span>
           </div>
         </Link>
       </div>
