@@ -135,7 +135,6 @@ function Header() {
             </div>
             <div className="relative cursor-pointer">
               <CgProfile size={33} color="white" />
-             
             </div>
           </div>
         </div>

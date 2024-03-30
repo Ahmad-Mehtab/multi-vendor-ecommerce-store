@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
     "@tanstack/react-query": "^5.28.0",
+    "antd": "^5.15.4",
     "axios": "^1.6.7",
     "country-state-city": "^3.2.1",
     "lottie": "^0.0.1",
