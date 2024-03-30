@@ -35,7 +35,7 @@ function Categories() {
                 navigate(`/products?category=${cate.title}`);
               };
               return (
-                <div onClick={() => handleSubmit(cate)} className="w-full h-[100px] flex items-center overflow-hidden justify-between">
+                <div key={index} onClick={() => handleSubmit(cate)} className="w-full h-[100px] flex items-center overflow-hidden justify-between">
                   <h5>{cate.title}</h5> 
                   <img src={cate.image_Url} className="w-[120px] object-cover" alt="" />
                 </div>
