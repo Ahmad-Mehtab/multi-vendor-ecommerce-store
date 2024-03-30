@@ -18,6 +18,7 @@ function ProductDetailCard({ open, setOpen, data }) {
           cancelButtonProps={{ style: { display: "none" } }}
           width={1000}
           footer={null}
+          
         >
           <div className="md:flex md:p-5 sm:block">
             <div className="flex-1">
@@ -26,7 +27,7 @@ function ProductDetailCard({ open, setOpen, data }) {
                 alt=""
                 className="md:w-[80%] 400px:w-[60%] sm:w-[50%] m-auto"
               />
-              <div className="md:block flex flex-wrap justify-between items-center mb-4 md:m-0">
+              <div className="md:block  flex flex-wrap justify-between items-center mb-4 md:m-0">
                 <div className="flex item-center gap-2">
                   <img
                     className="w-12 h-12 rounded-full object-fill"
@@ -47,6 +48,7 @@ function ProductDetailCard({ open, setOpen, data }) {
                   Send Message
                   <AiOutlineMessage size={22} className="ml-1" />{" "}
                 </button>
+                <h3 className="text-red-500 font-[600] text-[16px]">({data.total_sell}) Sold Out</h3>
               </div>
             </div>
             <div className="flex-1">
