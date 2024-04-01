@@ -1,6 +1,6 @@
  const styles = {
     custom_container: "w-11/12 hidden sm:block",
-    heading: 'text-[27px] text-center md:text-start font-[600] font-Roboto pb-[20px]',
+    heading: 'text-[27px] mt-10 text-center md:text-start font-[600] font-Roboto ',
     section:'w-11/12 mx-auto',
     productTitle: 'text-[25px] font-[600] font-Roboto text-[#333]',
     productDiscountPrice:"font-bold text-[18px] text-[#333] font-Roboto",
@@ -13,7 +13,7 @@
     input:"w-full border p-1 rounded-[5px]",
     activeStatus:"w-[10px] h-[10px] rounded-full absolute top-0 right-1 bg-[#40d132]",
     noramlFlex:"flex items-center",
-    gridCol:"grid grid-cols-1 rounded-lg gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px] p-12"
+    gridCol:"grid grid-cols-1 rounded-lg gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 mb-12 xl:gap-[30px] "
   };
 
  export const truncateStyle = {

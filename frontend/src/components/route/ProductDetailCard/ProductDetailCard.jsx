@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "antd";
 import styles from "../../../styles/styles";
-import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart, AiOutlineMessage, AiOutlineShoppingCart } from "react-icons/ai";
 
 function ProductDetailCard({ open, setOpen, data }) {
   const [count, setCount] = useState(0);
@@ -18,7 +18,7 @@ function ProductDetailCard({ open, setOpen, data }) {
           cancelButtonProps={{ style: { display: "none" } }}
           width={1000}
           footer={null}
-          
+
         >
           <div className="md:flex md:p-5 sm:block">
             <div className="flex-1">
@@ -125,6 +125,10 @@ function ProductDetailCard({ open, setOpen, data }) {
                   />
                 )}
               </div>
+              <button className={`${styles.button} `}>
+                Add To cart
+                <AiOutlineShoppingCart size={22} className="ml-1" />{" "}
+              </button>
             </div>
           </div>
         </Modal>

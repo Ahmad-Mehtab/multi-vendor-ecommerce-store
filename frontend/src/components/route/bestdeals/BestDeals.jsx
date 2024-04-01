@@ -18,7 +18,7 @@ function BestDeals() {
         <div className={`${styles.heading}`}>
           <h1>Best Deals</h1>
         </div>
-        <div className={`${styles.gridCol} p-0`}>
+        <div className={`${styles.gridCol}`}>
           {data &&
             data.map((dataItem, index) => (
               <ProductCard data={dataItem} key={index} />
