@@ -6,6 +6,7 @@ import BestDeals from '../components/route/bestdeals/BestDeals'
 import FeaturedProduct from '../components/route/FeaturedProduct/FeaturedProduct'
 import Events from '../components/Event/Events'
 import Sponsored from '../components/Sponsored'
+import Footer from '../components/layout/Footer'
 
 function HomePage() {
   return (
@@ -18,6 +19,7 @@ function HomePage() {
         <Events />
         <FeaturedProduct />
         <Sponsored />
+        <Footer />
         </div>
     </div>
   )
