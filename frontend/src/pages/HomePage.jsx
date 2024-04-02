@@ -12,7 +12,7 @@ function HomePage() {
   return (
     <div>
         <Header  />
-        <div className='bg-gray-100 pb-2'>
+        <div className='bg-gray-100'>
         <Hero />
         <Categories />
         <BestDeals />
