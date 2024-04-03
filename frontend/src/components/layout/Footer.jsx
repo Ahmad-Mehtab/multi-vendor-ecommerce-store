@@ -5,6 +5,8 @@ import {
   AiFillYoutube,
   AiOutlineTwitter,
 } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { footerProductLinks, footerSupportLinks, footercompanyLinks } from "../../static/Data";
 
 function Footer() {
   return (
@@ -28,7 +30,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="grid lg:place-items-center grid-cols-1 rounded-lg gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-4 px-10 lg:py-20 py-10 xl:gap-[30px]">
+      <div className="grid lg:place-items-center grid-cols-1 rounded-lg gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-4 px-10 lg:py-12 py-10 xl:gap-[30px]">
         <div>
           <img
             src="https://shopo.quomodothemes.website/assets/images/logo.svg"
@@ -57,37 +59,47 @@ function Footer() {
         <div>
           <h4 className="font-[500] text-[20px]">company</h4>
           <ul>
-            <li>About us</li>
-            <li>Careers</li>
-            <li>store Locations</li>
-            <li>Our Blog</li>
-            <li>Reviews</li>
+            {
+              footerProductLinks.map((proItem, index) => (
+                <li key={index}>
+                  <Link to={proItem.link} className="text-gray-400 hover:text-teal-400 duration-300 text-sm cursor-pointer leading-6">
+                    {proItem.name}
+                  </Link>
+                </li>
+              ))
+            }
           </ul>
         </div>
+
         <div>
           <h4 className="font-[500] text-[20px]">Shop</h4>
           <ul>
-            <li>Game and Video</li>
-            <li>Phone & Tablets</li>
-            <li>Computer & Laptop</li>
-            <li>Sport Watches</li>
-            <li>Events</li>
+            {
+              footercompanyLinks.map((proItem, index) => (
+                <li key={index} className="text-gray-400 hover:text-teal-400 duration-300 text-sm cursor-pointer leading-6">
+                  {proItem.name}
+                </li>
+              ))
+            }
           </ul>
         </div>
         <div>
           <h4 className="font-[500] text-[20px]">Support</h4>
           <ul>
-            <li>FAQ</li>
-            <li>Reviews</li>
-            <li>Contact Us</li>
-            <li>Shipping</li>
-            <li>Live Chat</li>
+            {
+              footerSupportLinks.map((proItem, index) => (
+                <li key={index} className="text-gray-400 hover:text-teal-400 duration-300 text-sm cursor-pointer leading-6">
+                  {proItem.name}
+                </li>
+              ))
+            }
           </ul>
         </div>
+
       </div>
       <div
-        className="flex justify-around flex-wrap w-full gap-4
-         text-center pt-2 text-gray-400 text-sm pb-8"
+        className="flex justify-around flex-wrap w-full gap-4 items-center
+         text-center pt-2 text-gray-400 text-sm pb-4"
       >
         <span>© 2020 Becodemy. All rights reserved.</span>
         <span>Terms · Privacy Policy</span>
