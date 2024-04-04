@@ -10,42 +10,49 @@ import { ActivateToken, Login, SignUp, HomePage, ProductPage, BestSelling, Event
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 // import { Provider } from "react-redux";
+import PrivateRouter from './PrivateRouter';
 
 
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <HomePage />,
+    element: <PrivateRouter />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp />,
+      },
+      {
+        path: "/activation/:activation_token",
+        element: <ActivateToken />,
+      },
+      {
+        path: "/products",
+        element: <ProductPage />,
+      },
+      {
+        path: "/best-selling",
+        element: <BestSelling />,
+      },
+      {
+        path: "/events",
+        element: <EventsPage />,
+      },
+      {
+        path: "/faq",
+        element: <FAQ />,
+      },
+    ],
   },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "sign-up",
-    element: <SignUp />,
-  },
-  {
-    path: "/activation/:activation_token",
-    element: <ActivateToken />,
-  },
-  {
-    path: "/products",
-    element: <ProductPage />,
-  },
-  {
-    path: "/best-selling",
-    element: <BestSelling />,
-  },
-  {
-    path: "/events",
-    element: <EventsPage />,
-  },
-  {
-    path: "/faq",
-    element: <FAQ />,
-  },
+  
   // {
   //   path: "/",
   //   element: <Layout />,
