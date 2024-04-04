@@ -10,7 +10,6 @@ function ActivateToken() {
     queryFn: getActivationTaken(activation_token),
   });
 
- console.log(data);
   useEffect(() => {
     // Trigger data refetch when the component mounts
     // getJobList();
