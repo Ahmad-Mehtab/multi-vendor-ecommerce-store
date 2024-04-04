@@ -15,7 +15,8 @@ import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 
 function Header() {
-  const {isAuthorized, currentUser} = useSelector((state) => state.user);
+  const { isAuthorized, currentUser } = useSelector((state) => state.user);
+  console.log('currentUser: ', currentUser);
   const [searchValue, setSearchValue] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(null);
@@ -92,9 +93,8 @@ function Header() {
         </div>
       </div>
       <div
-        className={`${
-          active == true ? "shadow-sm fixed top-0 left-0 z-10" : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px] `}
+        className={`${active == true ? "shadow-sm fixed top-0 left-0 z-10" : null
+          } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px] `}
       >
         <div
           className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
@@ -136,7 +136,17 @@ function Header() {
               </span>
             </div>
             <div className="relative cursor-pointer">
-              <CgProfile size={33} color="white" />
+              {
+                isAuthorized ? (
+                  <Link to={"/profile"}>
+                    <img src={currentUser.avatar.url} className="w-8 h-8 rounded-full object-cover" alt="missing" />
+                  </Link>
+                ) : (
+                  <Link to={"/login"}>
+                    <CgProfile size={33} color="white" />
+                  </Link>
+                )
+              }
             </div>
           </div>
         </div>

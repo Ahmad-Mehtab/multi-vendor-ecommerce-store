@@ -58,7 +58,7 @@ function SignUp() {
       setLoading(false)
       reset();
       setAvatar(null);
-      navigate("/");
+      navigate("/login");
     }
   };
   if (loading)
