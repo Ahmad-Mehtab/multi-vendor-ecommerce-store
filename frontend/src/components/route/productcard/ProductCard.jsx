@@ -13,7 +13,7 @@ import styles, { truncateStyle } from "../../../styles/styles";
 import { Link } from "react-router-dom";
 
 function ProductCard({ data }) {
-  console.log("data: ", data);
+  // console.log("data: ", data);
   const [click, setClick] = useState(false);
   const [open, setOpen] = useState(false);
   return (

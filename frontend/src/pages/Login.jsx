@@ -45,7 +45,7 @@ const LoginPage = () => {
         toast.success("Login successful")
         // nookies.set(null, 'token', res.data.token, {path: '/'});
         dispatch(userAuthorize(res.data.user));
-        // navigate("/");
+        navigate("/");
       }
     } catch (error) {
       toast.error(error.response.data.message);
