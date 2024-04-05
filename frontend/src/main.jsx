@@ -22,14 +22,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomePage />,
       },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/sign-up",
-        element: <SignUp />,
-      },
+    
       {
         path: "/activation/:activation_token",
         element: <ActivateToken />,
@@ -51,6 +44,14 @@ const router = createBrowserRouter([
         element: <FAQ />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
   },
   
   // {

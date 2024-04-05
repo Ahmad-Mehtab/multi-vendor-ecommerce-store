@@ -13,3 +13,13 @@
     cursor: pointer;
     transition: all 0.3s,visibility 0s;
 }
+
+:where(.css-dev-only-do-not-override-42nv3w).ant-drawer .ant-drawer-header-title {
+
+    justify-content: end;
+}
+
+:where(.css-dev-only-do-not-override-42nv3w).ant-drawer .ant-drawer-body {
+
+    padding: 0px;
+}

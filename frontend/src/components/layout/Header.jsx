@@ -13,14 +13,16 @@ import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
+import Cart from "../cart/Cart.jsx";
 
 function Header() {
   const { isAuthorized, currentUser } = useSelector((state) => state.user);
-  console.log('currentUser: ', currentUser);
+  console.log("currentUser: ", currentUser);
   const [searchValue, setSearchValue] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(null);
   const [dropDown, setDropDown] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
 
   const handleSearch = (e) => {
     const term = e.target.value;
@@ -93,8 +95,9 @@ function Header() {
         </div>
       </div>
       <div
-        className={`${active == true ? "shadow-sm fixed top-0 left-0 z-10" : null
-          } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px] `}
+        className={`${
+          active == true ? "shadow-sm fixed top-0 left-0 z-10" : null
+        } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px] `}
       >
         <div
           className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
@@ -129,25 +132,33 @@ function Header() {
               </span>
             </div>
 
-            <div className="relative cursor-pointer">
+            <div
+              className="relative cursor-pointer"
+              onClick={() => setOpenCart(!openCart)}
+            >
               <AiOutlineShoppingCart size={33} color="white" />
               <span className="absolute top-0 right-0 text-white font-medium text-sm w-4 h-4 flex items-center justify-center bg-green-600 p-[2px] rounded-full">
                 1
               </span>
             </div>
             <div className="relative cursor-pointer">
-              {
-                isAuthorized ? (
-                  <Link to={"/profile"}>
-                    <img src={currentUser.avatar.url} className="w-8 h-8 rounded-full object-cover" alt="missing" />
-                  </Link>
-                ) : (
-                  <Link to={"/login"}>
-                    <CgProfile size={33} color="white" />
-                  </Link>
-                )
-              }
+              {isAuthorized ? (
+                <Link to={"/profile"}>
+                  <img
+                    src={currentUser.avatar.url}
+                    className="w-8 h-8 rounded-full object-cover"
+                    alt="missing"
+                  />
+                </Link>
+              ) : (
+                <Link to={"/login"}>
+                  <CgProfile size={33} color="white" />
+                </Link>
+              )}
             </div>
+            {openCart ? (
+              <Cart setOpenCart={setOpenCart} openCart={openCart} />
+            ) : null}
           </div>
         </div>
       </div>
