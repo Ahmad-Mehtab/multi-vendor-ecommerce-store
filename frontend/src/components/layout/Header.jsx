@@ -13,7 +13,10 @@ import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
-import Cart from "../cart/Cart.jsx";
+import Cart from "../cart/Cart";
+import WishList from "../wishlist/WishList.jsx";
+
+
 
 function Header() {
   const { isAuthorized, currentUser } = useSelector((state) => state.user);
@@ -23,6 +26,7 @@ function Header() {
   const [active, setActive] = useState(null);
   const [dropDown, setDropDown] = useState(false);
   const [openCart, setOpenCart] = useState(false);
+  const [openWishList, setOpenWishList] = useState(false);
 
   const handleSearch = (e) => {
     const term = e.target.value;
@@ -125,7 +129,7 @@ function Header() {
             <Navbar />
           </div>
           <div className={`${styles.noramlFlex} gap-3`}>
-            <div className="relative cursor-pointer">
+            <div className="relative cursor-pointer" onClick={() => setOpenWishList(!openWishList)}>
               <AiOutlineHeart size={33} color="white" />
               <span className="absolute top-0 right-0 text-white font-medium text-sm w-4 h-4 flex items-center justify-center bg-green-600 p-[2px] rounded-full">
                 0
@@ -158,6 +162,9 @@ function Header() {
             </div>
             {openCart ? (
               <Cart setOpenCart={setOpenCart} openCart={openCart} />
+            ) : null}
+            {openWishList ? (
+              <WishList setOpenCart={setOpenWishList} openCart={openWishList} />
             ) : null}
           </div>
         </div>

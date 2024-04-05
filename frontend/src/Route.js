@@ -6,7 +6,8 @@ import BestDeals from './components/route/bestdeals/BestDeals';
 import ProductPage from './pages/ProductPage';
 import BestSelling from './pages/BestSelling';
 import EventsPage from './pages/EventsPage';
+import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import FAQ from './pages/FAQ';
 
 
-export { Login, SignUp, ActivateToken, HomePage, BestDeals, ProductPage, BestSelling, EventsPage, FAQ }
+export { Login, SignUp, ActivateToken, HomePage, BestDeals, ProductPage, BestSelling, EventsPage, FAQ, ProductDetailPage }

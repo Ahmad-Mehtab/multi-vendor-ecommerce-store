@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { Button, Drawer } from "antd";
+import { useState } from "react";
+import { Drawer } from "antd";
 import styles from "../../styles/styles";
 import { IoBagHandleOutline } from "react-icons/io5";
-import { HiPlusSm } from "react-icons/hi";
-import { LuMinus } from "react-icons/lu";
+// import { LuMinus } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { BsCartPlus } from "react-icons/bs";
+import { BsCartPlusFill } from "react-icons/bs";
 
-const Cart = ({ setOpenCart, openCart }) => {
+const WishList = ({ setOpenCart, openCart }) => {
   const onClose = () => {
     setOpenCart(false);
   };
@@ -59,9 +60,11 @@ const Cart = ({ setOpenCart, openCart }) => {
         </div>
 
         <div className="my-5 text-center">
-              <Link to="/checkout">
-                <button className="bg-red-600 text-white h-[50px] w-[80%] rounded-[5px] text-[18px] font-[600]">Checkout Now (USD$1080)</button>
-              </Link>
+          <Link to="/checkout">
+            <button className="bg-red-600 text-white h-[50px] w-[80%] rounded-[5px] text-[18px] font-[600]">
+              Checkout Now (USD$1080)
+            </button>
+          </Link>
         </div>
       </Drawer>
     </>
@@ -71,12 +74,20 @@ const Cart = ({ setOpenCart, openCart }) => {
 const CartSingle = ({ data }) => {
   const [value, setValue] = useState(1);
   return (
-    <div className={`${styles.noramlFlex} border py-5 px-5 w-full gap-5`}>
-      <div className={`flex flex-col items-center justify-center w-fit gap-1`}>
-        <HiPlusSm onClick={()=>setValue(value + 1)} size={20} className="bg-red-600 text-white rounded-full " />
+    <div className={`${styles.noramlFlex} justify-between border py-5 px-5 w-full`}>
+      {/* <div className={`flex flex-col items-center justify-center w-fit gap-1`}>
+        <HiPlusSm
+          onClick={() => setValue(value + 1)}
+          size={20}
+          className="bg-red-600 text-white rounded-full "
+        />
         <span className="text-lg">{value}</span>
-        <LuMinus onClick={()=>setValue(value === 1 ? 1: value - 1)}  size={20} className="bg-gray-400 text-white rounded-full " />
-      </div>
+        <LuMinus
+          onClick={() => setValue(value === 1 ? 1 : value - 1)}
+          size={20}
+          className="bg-gray-400 text-white rounded-full "
+        />
+      </div> */}
       <div>
         <img
           className="w-[60px] h-[60px]"
@@ -88,11 +99,21 @@ const CartSingle = ({ data }) => {
       <div>
         <p>{data.name}</p>
         {/* <p>{data.description}</p> */}
-        <p className="text-[17px] text-gray-600 my-[3px]" >{data.price} * {value}</p>
-        <p className="text-[17px] font-[500] text-red-600 font-Roboto">US${data.price}</p>
+        <p className="text-[17px] text-gray-600 my-[3px]">
+          {data.price} * {value}
+        </p>
+        <p className="text-[17px] font-[500] text-red-600 font-Roboto">
+          US${data.price}
+        </p>
+      </div>
+
+      <div>
+        <BsCartPlusFill 
+          size={20}
+        />
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default WishList;
