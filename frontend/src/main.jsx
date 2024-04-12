@@ -6,42 +6,61 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ActivateToken, Login, SignUp, HomePage, ProductPage, BestSelling, EventsPage, FAQ} from "./Route.js";
+import {
+  ActivateToken,
+  Login,
+  SignUp,
+  HomePage,
+  ProductPage,
+  BestSelling,
+  EventsPage,
+  FAQ,
+  ProductDetailPage,
+} from "./Route.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 // import { Provider } from "react-redux";
-import PrivateRouter from './PrivateRouter';
-
-
+import PrivateRouter from "./PrivateRouter";
+import Layout from "./Layout";
 
 const router = createBrowserRouter([
   {
-    element: <PrivateRouter />,
+    path: "/",
+    element: <Layout />,
     children: [
       {
-        path: "/",
-        element: <HomePage />,
-      },
-    
-      {
-        path: "/activation/:activation_token",
-        element: <ActivateToken />,
-      },
-      {
-        path: "/products",
-        element: <ProductPage />,
-      },
-      {
-        path: "/best-selling",
-        element: <BestSelling />,
-      },
-      {
-        path: "/events",
-        element: <EventsPage />,
-      },
-      {
-        path: "/faq",
-        element: <FAQ />,
+        element: <PrivateRouter />,
+        children: [
+          {
+            path: "",
+            element: <HomePage />,
+          },
+
+          {
+            path: "/activation/:activation_token",
+            element: <ActivateToken />,
+          },
+          {
+            path: "/products",
+            element: <ProductPage />,
+          },
+          {
+            path: "/products/:id",
+            element: <ProductDetailPage />,
+          },
+          {
+            path: "/best-selling",
+            element: <BestSelling />,
+          },
+          {
+            path: "/events",
+            element: <EventsPage />,
+          },
+          {
+            path: "/faq",
+            element: <FAQ />,
+          },
+        ],
       },
     ],
   },
@@ -53,7 +72,7 @@ const router = createBrowserRouter([
     path: "/sign-up",
     element: <SignUp />,
   },
-  
+
   // {
   //   path: "/",
   //   element: <Layout />,
