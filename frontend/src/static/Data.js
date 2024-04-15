@@ -358,7 +358,7 @@ export const productData = [
       },
       {
         public_id: "test",
-        url: "https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1",
+        url: "https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg",
       },
     ],
     shop: {
