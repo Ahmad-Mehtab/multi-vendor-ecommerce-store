@@ -16,6 +16,7 @@ import {
   EventsPage,
   FAQ,
   ProductDetailPage,
+  ProfilePage,
 } from "./Route.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
           {
             path: "/faq",
             element: <FAQ />,
+          },
+          {
+            path: "/profile",
+            element: <ProfilePage />,
           },
         ],
       },

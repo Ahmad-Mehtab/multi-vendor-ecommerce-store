@@ -22,9 +22,9 @@ function Footer() {
           <input
             type="text"
             placeholder="enter your email"
-            className="py-2 px-2 w-72 rounded-md placeholder:text-slate-400 placeholder:font-[500] text-slate-900 "
+            className="py-2 px-4 w-auto 400px:w-72 rounded-md placeholder:text-slate-400 placeholder:font-[500] text-slate-900 "
           />
-          <button className="bg-[#56d879] py-2 hover:bg-teal-500 duration-300 px-5 rounded-md font-[500]">
+          <button className="bg-[#56d879] w-auto 400px:w-72 py-2 hover:bg-teal-500 duration-300 px-5 rounded-md font-[500]">
             Submit
           </button>
         </div>

@@ -20,7 +20,6 @@ import WishList from "../wishlist/WishList.jsx";
 
 function Header() {
   const { isAuthorized, currentUser } = useSelector((state) => state.user);
-  console.log("currentUser: ", currentUser);
   const [searchValue, setSearchValue] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(null);

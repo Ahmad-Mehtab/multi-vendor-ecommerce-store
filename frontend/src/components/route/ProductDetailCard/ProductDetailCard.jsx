@@ -30,7 +30,8 @@ function ProductDetailCard({ open, setOpen, data }) {
               <div className="md:block  flex flex-wrap justify-between items-center mb-4 md:m-0">
                 <div className="flex item-center gap-2">
                   <img
-                    className="w-12 h-12 rounded-full object-fill"
+                    className="w-12 h-12 rounded-full o
+                    bject-fill"
                     src={data?.shop.shop_avatar.url}
                     alt=""
                   />
@@ -78,7 +79,7 @@ function ProductDetailCard({ open, setOpen, data }) {
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M1 1h16"
                         />
                       </svg>
@@ -102,7 +103,7 @@ function ProductDetailCard({ open, setOpen, data }) {
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M9 1v16M1 9h16"
                         />
                       </svg>

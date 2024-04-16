@@ -8,6 +8,7 @@ import BestSelling from './pages/BestSelling';
 import EventsPage from './pages/EventsPage';
 import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import FAQ from './pages/FAQ';
+import ProfilePage from './pages/ProfilePage.jsx';
 
 
-export { Login, SignUp, ActivateToken, HomePage, BestDeals, ProductPage, BestSelling, EventsPage, FAQ, ProductDetailPage }
+export { Login, SignUp, ActivateToken, HomePage, BestDeals, ProductPage, BestSelling, EventsPage, FAQ, ProductDetailPage,ProfilePage }
