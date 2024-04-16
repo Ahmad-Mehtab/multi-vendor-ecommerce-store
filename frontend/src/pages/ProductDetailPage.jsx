@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { productData } from "../static/Data";
 import styles from "../styles/styles";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 
 function ProductDetailPage() {
   const { name } = useParams();
@@ -21,9 +21,9 @@ function ProductDetailPage() {
   return (
     <div className="bg-white">
       {data && (
-        <div className={`${styles.section} w-[90%] 800px:w-[80%] py-10`}>
+        <div className={`${styles.section} w-full px-5 1100px:px-10 1100px:w-[80%]`}>
           <div className="w-full block 800px:flex">
-            <div className="w-full 800px:w-[50%]">
+            <div className="w-full 800px:w-[50%] px-0 400px:px-5">
               <img src={data.image_Url[select].url} alt="" />
               <div className="w-full flex ">
                 <div
@@ -48,7 +48,11 @@ function ProductDetailPage() {
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             <div className="block w-[50%]">
+=======
+            <div className="block 800px:w-[50%] !mt-5 w-full">
+>>>>>>> 13a4acd2c11ed906b8f724746c818ecadea310a2
               <h1 className={`${styles.productTitle} `}>{data.name}</h1>
               <p>{data.description}</p>
               <div className="flex pt-3">
@@ -127,6 +131,10 @@ function ProductDetailPage() {
                   />
                 )}
               </div>
+              <button className={`${styles.button} mt-4`}>
+                Add To cart
+                <AiOutlineShoppingCart size={22} className="ml-1" />{" "}
+              </button>
             </div>
           </div>
         </div>

@@ -11,26 +11,26 @@ import { footerProductLinks, footerSupportLinks, footercompanyLinks } from "../.
 function Footer() {
   return (
     <div className="bg-black text-white">
-      <div className="bg-[#342ac8] px-10 py-6 md:flex md:justify-between items-center text-center md:text-start ">
+      <div className="bg-[#342ac8] p-3 800px:px-10 800px:py-6 md:flex md:justify-between items-center text-center md:text-start ">
         <div>
           <h1 className="lg:text-[40px] text-[30px] text-center md:text-start font-[500] leading-snug">
             <span className="text-[#56d879] ">Subscribe</span> us for get news{" "}
             <br /> events and offers
           </h1>
         </div>
-        <div className="flex  gap-3 justify-center md:mt-0 mt-5">
+        <div className="grid items-center 400px:flex gap-3 justify-center md:mt-0 mt-5">
           <input
             type="text"
             placeholder="enter your email"
             className="py-2 px-2 w-72 rounded-md placeholder:text-slate-400 placeholder:font-[500] text-slate-900 "
           />
-          <button className="bg-[#56d879] hover:bg-teal-500 duration-300 px-5 rounded-md font-[500]">
+          <button className="bg-[#56d879] py-2 hover:bg-teal-500 duration-300 px-5 rounded-md font-[500]">
             Submit
           </button>
         </div>
       </div>
 
-      <div className="grid lg:place-items-center grid-cols-1 rounded-lg gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-4 px-10 lg:py-12 py-10 xl:gap-[30px]">
+      <div className="grid lg:place-items-center grid-cols-1 rounded-lg gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-4 p-3 800px:p-10 lg:py-12 xl:gap-[30px]">
         <div>
           <img
             src="https://shopo.quomodothemes.website/assets/images/logo.svg"
