@@ -24,7 +24,7 @@ function ProductPage() {
   }, [category]);
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <br />
       <br />
       <div className={`${styles.section}`}>

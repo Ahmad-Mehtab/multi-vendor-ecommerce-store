@@ -14,7 +14,7 @@ function BestSelling() {
   }, []);
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <br />
       <br />
       <div className={`${styles.section}`}>

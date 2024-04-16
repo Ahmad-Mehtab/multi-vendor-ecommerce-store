@@ -13,14 +13,16 @@ import styles, { truncateStyle } from "../../../styles/styles";
 import { Link } from "react-router-dom";
 
 function ProductCard({ data }) {
-  // console.log("data: ", data);
+  console.log("data: ", data);
   const [click, setClick] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const proName = data.name.replace(/\s/g, '-');
   return (
     <>
       <div className="w-full  bg-white relative my-2 rounded-md  ">
         <div className="p-5">
-          <Link to={`/product/${data.product_name}`}>
+          <Link to={`/products/${proName}`}>
             <img
               src={data && data.image_Url[0]?.url}
               alt=""
@@ -28,15 +30,16 @@ function ProductCard({ data }) {
             />
           </Link>
 
-          <Link to={`/product/${data.product_name}`}>
+          <Link to={`/products/${data.name}`}>
             <p className={`${styles.shop_name}`}>{data.shop.name}</p>
           </Link>
-          <Link to={`/product/${data.product_name}`}>
+          <Link to={`/products/${data.name}`}>
             <h4 className="pb-3 font-[400]">
               {data.name.length > 40
                 ? data.name.slice(0, 40) + "..."
                 : data.name}
             </h4>
+          
             <div className="flex my-3">
               <AiFillStar className="mr-2" size={20} color="#F6BA00" />
               <AiFillStar className="mr-2" size={20} color="#F6BA00" />
