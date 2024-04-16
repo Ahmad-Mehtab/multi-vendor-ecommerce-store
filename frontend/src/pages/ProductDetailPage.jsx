@@ -21,7 +21,7 @@ function ProductDetailPage() {
   return (
     <div className="bg-white">
       {data && (
-        <div className={`${styles.section} w-[90%] 800px:w-[80%] h-screen`}>
+        <div className={`${styles.section} w-[90%] 800px:w-[80%] py-10`}>
           <div className="w-full block 800px:flex">
             <div className="w-full 800px:w-[50%]">
               <img src={data.image_Url[select].url} alt="" />
@@ -48,7 +48,7 @@ function ProductDetailPage() {
                 </div>
               </div>
             </div>
-            <div className="block w-[50%] mt-5">
+            <div className="block w-[50%]">
               <h1 className={`${styles.productTitle} `}>{data.name}</h1>
               <p>{data.description}</p>
               <div className="flex pt-3">
