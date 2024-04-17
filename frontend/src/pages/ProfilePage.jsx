@@ -1,17 +1,20 @@
-import React from 'react'
-import styles from '../styles/styles'
-import ProfileSideBar from '../components/Profile/ProfileSideBar.jsx'
-import ProfileContent from '../components/Profile/ProfileContent.jsx'
+import React, { useState } from "react";
+import styles from "../styles/styles";
+import ProfileSideBar from "../components/Profile/ProfileSideBar.jsx";
+import ProfileContent from "../components/Profile/ProfileContent.jsx";
 
 function ProfilePage() {
+  const [active, setActive] = useState(0);
   return (
-    <div className={`${styles.section} flex bg-[#f5f5f5] py-5`}>
-        <div className='w-[335px]'>
-        <ProfileSideBar />
+    <div className="bg-[#f5f5f5]">
+      <div className={`${styles.section} flex py-5 gap-5`}>
+        <div className="w-[335px] px-4">
+          <ProfileSideBar active={active} setActive={setActive} />
         </div>
-        <ProfileContent />
+        <ProfileContent active={active} />                                                                                                                                  
+      </div>
     </div>
-  )
+  );
 }
 
-export default ProfilePage
+export default ProfilePage;                                             

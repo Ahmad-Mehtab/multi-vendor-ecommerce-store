@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { productData } from "../static/Data";
 import Header from "../components/layout/Header";
 import styles from "../styles/styles";
-import ProductCard from "../components/route/productcard/ProductCard";
+import ProductCard from "../components/route/ProductCard/ProductCard";
 
 function BestSelling() {
   const [data, setData] = useState();

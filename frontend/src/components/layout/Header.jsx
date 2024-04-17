@@ -147,7 +147,7 @@ function Header() {
               {isAuthorized ? (
                 <Link to={"/profile"}>
                   <img
-                    src={currentUser.avatar.url}
+                    src={currentUser.avatar?.url}
                     className="w-8 h-8 rounded-full object-cover"
                     alt="missing"
                   />

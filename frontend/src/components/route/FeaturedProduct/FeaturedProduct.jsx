@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../../../styles/styles'
 import { productData } from '../../../static/Data'
-import ProductCard from '../productcard/ProductCard'
+import ProductCard from '../ProductCard/ProductCard'
 
 function FeaturedProduct() {
   return (
