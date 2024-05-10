@@ -8,6 +8,7 @@ function Navbar() {
   return (
     <div className={`${styles.noramlFlex}`}>
       <div className="flex gap-16">
+        
         {navItems && navItems.map((item, index) => (
           <NavLink 
           to={item.url} 

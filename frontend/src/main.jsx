@@ -78,58 +78,7 @@ const router = createBrowserRouter([
     element: <SignUp />,
   },
 
-  // {
-  //   path: "/",
-  //   element: <Layout />,
-  //   children: [
-  //     {
-  //       path: "",
-  //       element: <Home />,
-  //     },
-  //     {
-  //       path: "/register",
-  //       element: <Register />,
-  //     },
-  //     {
-  //       path: "/login",
-  //       element: <Login />,
-  //     },
-  //     {
-  //       path: "*",
-  //       element: <NotFound />,
-  //     },
-
-  //     {
-  //       element: <PrivateRouter />,
-  //       children: [
-  //         {
-  //           path: "/job/getall",
-  //           element: <Jobs />,
-  //         },
-  //         {
-  //           path: "/job/:id",
-  //           element: <JobDetails />,
-  //         },
-  //         {
-  //           path: "/application/:id",
-  //           element: <Application />,
-  //         },
-  //         {
-  //           path: "/applications/me",
-  //           element: <MyApplications />,
-  //         },
-  //         {
-  //           path: "/job/post",
-  //           element: <PostJob />,
-  //         },
-  //         {
-  //           path: "/job/me",
-  //           element: <MyJobs />,
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
+  
 ]);
 
 const queryClient = new QueryClient({

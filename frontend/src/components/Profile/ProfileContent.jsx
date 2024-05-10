@@ -189,7 +189,6 @@ const AllOrders = () => {
       editable: true,
     },
     {
-
       sortable: false,
       renderCell: (params) => {
         return (
@@ -284,7 +283,6 @@ const Refunds = () => {
       editable: true,
     },
     {
-
       sortable: false,
       renderCell: (params) => {
         return (
@@ -379,7 +377,6 @@ const TrackChanges = () => {
       editable: true,
     },
     {
-
       sortable: false,
       renderCell: (params) => {
         return (
